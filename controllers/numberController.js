@@ -9,7 +9,7 @@ const numberController = async (req, res) => {
     const result = nubmerSchema.safeParse(req.query);
 
     if (result.error) {
-      res.status(400).json({
+      return res.status(400).json({
         number: "alphabet",
         error: true,
       });
@@ -22,7 +22,7 @@ const numberController = async (req, res) => {
     const response = await fetch(`http://numbersapi.com/${number}`);
     const fun_fact = await response.text();
 
-    res.status(200).json({
+    return res.status(200).json({
       number: number,
       is_prime: is_prime,
       is_perfect: is_perfect,
@@ -32,7 +32,7 @@ const numberController = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    return res.status(500).json({
       message: "An error occured",
     });
   }
