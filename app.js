@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const { number } = require("zod");
+
 const PORT = process.env.PORT || 3000;
 const numberRoute = require("./routes/numberRoute");
 
